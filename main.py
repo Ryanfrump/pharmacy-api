@@ -27,7 +27,10 @@ async def update_patient(first_name: str, updated_patient: Patient):
     for i, patient in enumerate(patients):
         if patient.first_name == first_name:
             patients[i] = updated_patient
-            return
+            return "patient updated"
+    patients.append(updated_patient)
+    return "patient created"
+    
 
 @app.delete("/patients/{first_name}")
 async def delete_patient(first_name: str):
